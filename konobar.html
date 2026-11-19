@@ -10,85 +10,156 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700;800&family=Parisienne&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#121a17;--card:#1c2d28;--card-2:#27403a;--cream:#f4eee2;--orange:#e08a2e;--muted:#93a39c;--line:rgba(244,238,226,.12);--green:#4fb07a;--red:#e2614b;
+:root{--bg:#121a17;--card:#1a2823;--card-2:#22352f;--floor:#16221e;--cream:#f4eee2;--orange:#e08a2e;--muted:#93a39c;--line:rgba(244,238,226,.12);--green:#4fb07a;
   --serif:"Cormorant Garamond",Georgia,serif;--sans:"Manrope",system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{font-family:var(--sans);background:var(--bg);color:var(--cream);min-height:100vh;-webkit-font-smoothing:antialiased}
 button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 a{color:var(--orange)}
-.app{max-width:560px;margin-inline:auto;padding:22px 16px 60px}
+.app{max-width:1080px;margin-inline:auto;padding:20px 16px 60px}
 header{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .logo{font-family:var(--serif);font-size:1.35rem;font-weight:600;letter-spacing:.05em}
 .logo span{font-family:"Parisienne",cursive;color:var(--orange);font-size:1.3rem;letter-spacing:0;margin-left:6px}
-.live{display:flex;align-items:center;gap:8px;font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
-.live i{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(79,176,122,.7);animation:pulse 1.8s infinite}
-@keyframes pulse{to{box-shadow:0 0 0 12px rgba(79,176,122,0)}}
-h1{font-family:var(--serif);font-weight:500;font-size:2.3rem;margin:26px 0 4px;line-height:1.05}
-.sub{color:var(--muted);font-size:.9rem}
-.zones{display:flex;gap:8px;margin:20px 0 6px;overflow-x:auto;scrollbar-width:none}
+.live{display:flex;align-items:center;gap:8px;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.live i{width:9px;height:9px;border-radius:50%;background:var(--green);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(79,176,122,.7)}100%{box-shadow:0 0 0 12px rgba(79,176,122,0)}}
+h1{font-family:var(--serif);font-weight:500;font-size:2.1rem;margin:20px 0 2px;line-height:1.05}
+.sub{color:var(--muted);font-size:.88rem}
+.zones{display:flex;gap:8px;margin:16px 0 14px;overflow-x:auto;scrollbar-width:none}
 .zones::-webkit-scrollbar{display:none}
-.zones button{padding:10px 16px;border-radius:999px;border:1px solid var(--line);font-weight:700;font-size:.84rem;white-space:nowrap;color:var(--muted)}
+.zones button{display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid var(--line);font-weight:700;font-size:.86rem;white-space:nowrap;color:var(--muted)}
 .zones button.on{background:var(--cream);color:var(--bg);border-color:var(--cream)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 22px}
-.stats div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
-.stats b{display:block;font-size:1.7rem;font-weight:800;line-height:1}
-.stats small{color:var(--muted);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
-.call{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;margin-bottom:12px;animation:in .45s var(--ease)}
-@keyframes in{from{opacity:0;transform:translateY(-14px) scale(.98)}}
-.call.novo{border-color:rgba(224,138,46,.7);background:linear-gradient(135deg,#2a3a2f,#1c2d28);box-shadow:0 18px 40px -22px rgba(224,138,46,.8)}
-.num{flex:none;width:68px;height:68px;border-radius:18px;background:var(--orange);color:#1b1206;display:grid;place-items:center;text-align:center;line-height:1}
-.num small{display:block;font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
-.num b{font-size:1.9rem;font-weight:800}
+.zones b{min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--orange);color:#1b1206;font-size:.72rem;display:none;align-items:center;justify-content:center}
+.zones b.has{display:inline-flex}
+.grid{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;align-items:start}
+.plans{display:grid;gap:14px}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:14px 14px 10px}
+.plan h2{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
+.plan h2 em{font-style:normal;color:var(--orange);letter-spacing:0;text-transform:none;font-size:.8rem}
+svg{display:block;width:100%;height:auto;touch-action:manipulation}
+.room{fill:var(--floor);stroke:rgba(244,238,226,.16);stroke-width:1.5}
+.fix{fill:#22352f;stroke:rgba(244,238,226,.14)}
+.lbl{fill:#6f8179;font:700 9px var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.deco{fill:#24463a;opacity:.75}
+.water{fill:#1b3a44;opacity:.8}
+.t{cursor:pointer}
+.t .top{fill:#2b443c;stroke:rgba(244,238,226,.3);stroke-width:1.4;transition:fill .25s,stroke .25s}
+.t .ch{fill:#1f322c;stroke:rgba(244,238,226,.16)}
+.t text{fill:var(--cream);font:800 15px var(--sans);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.t .tm{font:700 8.5px var(--sans);fill:#1b1206;opacity:0}
+.t .ring{fill:none;stroke:var(--orange);stroke-width:2;opacity:0}
+.t.call .top{fill:var(--orange);stroke:#ffd29b}
+.t.call text{fill:#1b1206}
+.t.call .tm{opacity:1}
+.t.call .ch{fill:#6b4416;stroke:#e08a2e}
+.t.call .ring{opacity:1;animation:ring 1.4s var(--ease) infinite;transform-box:fill-box;transform-origin:center}
+.t.bill .top{fill:var(--green);stroke:#b5ecc9}
+.t.bill .ch{fill:#1f5a3b;stroke:var(--green)}
+.t.bill .ring{stroke:var(--green)}
+@keyframes ring{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.55);opacity:0}}
+.side{position:sticky;top:14px;display:grid;gap:12px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.stats b{display:block;font-size:1.55rem;font-weight:800;line-height:1.1}
+.stats small{color:var(--muted);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+.call{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;animation:in .45s var(--ease)}
+@keyframes in{from{opacity:0;transform:translateY(-12px)}}
+.call.novo{border-color:rgba(224,138,46,.7);background:linear-gradient(135deg,#2a3a2f,#1a2823)}
+.call.novo.racun{border-color:rgba(79,176,122,.7)}
+.num{flex:none;width:54px;height:54px;border-radius:15px;background:var(--orange);color:#1b1206;display:grid;place-items:center;text-align:center;line-height:1}
+.racun .num{background:var(--green)}
+.num small{display:block;font-size:.56rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.num b{font-size:1.5rem;font-weight:800}
+.call.gotovo{opacity:.55}
 .call.gotovo .num{background:var(--card-2);color:var(--muted)}
 .call .mid{flex:1;min-width:0}
-.call h3{font-size:1.05rem;font-weight:800}
-.call p{color:var(--muted);font-size:.82rem;margin-top:3px}
-.call .act{flex:none;height:44px;padding:0 16px;border-radius:12px;background:var(--cream);color:var(--bg);font-weight:800;font-size:.86rem}
-.call.gotovo .act{background:none;color:var(--green);padding:0 4px}
-.kind{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:6px;margin-left:6px;vertical-align:2px}
-.kind.konobar{background:rgba(224,138,46,.2);color:var(--orange)}
-.kind.racun{background:rgba(79,176,122,.2);color:var(--green)}
-.empty{text-align:center;color:var(--muted);padding:54px 16px;border:1px dashed var(--line);border-radius:20px;font-size:.95rem;line-height:1.6}
-.foot{margin-top:26px;font-size:.8rem;color:var(--muted);line-height:1.6}
+.call h3{font-size:.95rem;font-weight:800}
+.call p{color:var(--muted);font-size:.78rem;margin-top:2px}
+.call .act{flex:none;height:40px;padding:0 14px;border-radius:11px;background:var(--cream);color:var(--bg);font-weight:800;font-size:.82rem}
+.call.gotovo .act{background:none;color:var(--green);padding:0 2px}
+.empty{text-align:center;color:var(--muted);padding:30px 14px;border:1px dashed var(--line);border-radius:18px;font-size:.9rem;line-height:1.6}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.76rem;color:var(--muted)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:4px;margin-right:6px;vertical-align:-1px}
+.foot{font-size:.78rem;color:var(--muted);line-height:1.6}
 .foot button{color:var(--orange);font-weight:700}
-.banner{position:fixed;left:50%;top:14px;translate:-50% -140%;z-index:10;width:min(520px,calc(100% - 24px));background:var(--cream);color:var(--bg);border-radius:18px;padding:14px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.7);transition:translate .5s var(--ease)}
+.banner{position:fixed;left:50%;top:14px;translate:-50% -160%;z-index:10;width:min(520px,calc(100% - 24px));background:var(--cream);color:var(--bg);border-radius:18px;padding:14px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.7);transition:translate .5s var(--ease)}
 .banner.show{translate:-50% 0}
 .banner i{flex:none;width:42px;height:42px;border-radius:12px;background:var(--orange);display:grid;place-items:center;font-style:normal;font-weight:800}
 .banner b{display:block;font-size:.95rem}
 .banner span{font-size:.8rem;color:#4a5a54}
+@media (max-width:860px){.grid{grid-template-columns:1fr}.side{position:static;order:-1}h1{font-size:1.8rem}}
 </style>
 </head>
 <body>
-<div class="banner" id="banner"><i id="bn">7</i><div><b id="bt">Sto 7 zove konobara</b><span id="bs">Reon B · sala · upravo</span></div></div>
+<div class="banner" id="banner"><i id="bn">7</i><div><b id="bt"></b><span id="bs"></span></div></div>
 <div class="app">
   <header><div class="logo">VRBAK<span>Oh la la</span></div><div class="live"><i></i>Uživo</div></header>
-  <h1>Pozivi sa stolova</h1>
-  <p class="sub">Ekran konobara. Novi poziv stiže čim gost dodirne „Pozovi konobara” u meniju.</p>
+  <h1>Plan sale</h1>
+  <p class="sub">Sto koji zove svetli na planu. Dodirnite sto da preuzmete poziv.</p>
   <div class="zones" id="zones"></div>
-  <div class="stats"><div><b id="sN">0</b><small>Čeka</small></div><div><b id="sD">0</b><small>Preuzeto</small></div><div><b id="sT">–</b><small>Poslednji</small></div></div>
-  <div id="list"></div>
-  <p class="foot">Demo: otvorite <a href="meni.html" target="_blank">digitalni meni</a> u drugom prozoru i dodirnite „Pozovi konobara”. U pravoj verziji obaveštenje stiže kao notifikacija na telefon konobara koji je zadužen za taj reon, i kada je ekran zaključan. <button id="test">Pošalji probni poziv</button> · <button id="wipe">Obriši sve</button></p>
+  <div class="grid">
+    <div class="plans" id="plans"></div>
+    <aside class="side">
+      <div class="stats"><div><b id="sN">0</b><small>Čeka</small></div><div><b id="sD">0</b><small>Preuzeto</small></div><div><b id="sT">–</b><small>Najduže</small></div></div>
+      <div id="list" style="display:grid;gap:10px"></div>
+      <div class="legend"><span><i style="background:#2b443c;border:1px solid rgba(244,238,226,.3)"></i>Slobodan</span><span><i style="background:var(--orange)"></i>Zove konobara</span><span><i style="background:var(--green)"></i>Traži račun</span></div>
+      <p class="foot">Demo: otvorite <a href="meni.html?sto=9" target="_blank">meni stola 9</a> u drugom prozoru i dodirnite „Pozovi konobara”, ili skenirajte <a href="qr.html" target="_blank">QR kod stola</a>. Raspored stolova je primer (terasa, sala, gornja terasa) i crta se tačno prema Vašem rasporedu. U pravoj verziji poziv stiže kao notifikacija na telefon konobara zaduženog za taj reon. <button id="test">Probni poziv</button> · <button id="wipe">Obriši sve</button></p>
+    </aside>
+  </div>
 </div>
 <script>
-const KEY = "vrbak-pozivi", ZONES = ["Svi reoni","Reon A · bašta","Reon B · sala","Reon C · sprat"];
-let zone = ZONES[0], seen = new Set();
+const KEY = "vrbak-pozivi";
+/* Plan sale: [broj, x, y, oblik]  oblik: r = okrugli, s = kvadratni (4), l = dugi (6) */
+const PLAN = [
+  { id:"A", name:"Terasa", full:"Reon A · terasa", tables:[[1,58,66,"s"],[2,150,66,"s"],[3,242,66,"s"],[4,334,66,"s"],[5,58,156,"r"],[6,150,156,"r"],[7,242,156,"r"],[8,334,156,"r"]],
+    deco:`<path d="M104 14v196M196 14v196M288 14v196" stroke="rgba(244,238,226,.07)" stroke-width="18"/>
+          ${[[12,12],[196,12],[388,12],[12,212],[196,212],[388,212]].map(([x,y]) => `<rect class="fix" x="${x-5}" y="${y-5}" width="10" height="10" rx="2"/>`).join("")}
+          <text class="lbl" x="200" y="18" text-anchor="middle">Ulaz u salu</text><text class="lbl" x="200" y="222" text-anchor="middle">Šetalište · pergola</text>` },
+  { id:"B", name:"Sala", full:"Reon B · sala", tables:[[9,60,62,"s"],[10,150,62,"s"],[11,240,62,"s"],[12,70,160,"l"],[13,196,160,"l"],[14,300,158,"r"]],
+    deco:`<rect class="fix" x="296" y="8" width="96" height="92" rx="10"/><text class="lbl" x="344" y="50" text-anchor="middle">Šank</text><text class="lbl" x="344" y="64" text-anchor="middle">Vitrina</text>
+          <rect class="fix" x="352" y="126" width="40" height="72" rx="8"/><text class="lbl" x="372" y="166" text-anchor="middle" transform="rotate(-90 372 166)">Kuhinja</text>
+          <rect class="fix" x="150" y="212" width="70" height="10" rx="5"/><text class="lbl" x="185" y="208" text-anchor="middle">Izlaz na terasu</text>` },
+  { id:"C", name:"Gornja terasa", full:"Reon C · gornja terasa", tables:[[15,62,70,"r"],[16,156,70,"r"],[17,256,68,"l"],[18,66,160,"s"],[19,160,160,"s"],[20,272,160,"l"]],
+    deco:`<rect class="fix" x="340" y="34" width="52" height="84" rx="8"/><path d="M346 48h40M346 62h40M346 76h40M346 90h40M346 104h40" stroke="rgba(244,238,226,.18)"/><text class="lbl" x="366" y="132" text-anchor="middle">Stepenice</text>
+          <path d="M14 12h312" stroke="#5aa7c4" stroke-width="3" stroke-linecap="round" opacity=".6"/><text class="lbl" x="170" y="26" text-anchor="middle">Stakleni zid · pogled na šetalište</text>` }
+];
+const zoneOfTable = n => PLAN.find(z => z.tables.some(t => t[0]===n));
+let zone = "all", seen = new Set();
 const $ = s => document.querySelector(s);
 const load = () => { try{ return JSON.parse(localStorage.getItem(KEY) || "[]"); }catch(e){ return []; } };
 const save = a => localStorage.setItem(KEY, JSON.stringify(a));
-const ago = iso => { const s = Math.max(0, Math.round((Date.now() - new Date(iso))/1000)); return s < 10 ? "upravo" : s < 60 ? `pre ${s} s` : s < 3600 ? `pre ${Math.floor(s/60)} min` : new Date(iso).toLocaleTimeString("sr-RS",{hour:"2-digit",minute:"2-digit"}); };
-function render(){
-  const all = load(), mine = all.filter(c => zone===ZONES[0] || c.reon===zone);
-  $("#zones").innerHTML = ZONES.map(z => `<button class="${z===zone?"on":""}" data-z="${z}">${z}</button>`).join("");
-  $("#sN").textContent = mine.filter(c => c.status==="novo").length;
-  $("#sD").textContent = mine.filter(c => c.status!=="novo").length;
-  $("#sT").textContent = mine[0] ? "Sto " + mine[0].sto : "–";
-  $("#list").innerHTML = mine.length ? mine.map(c => `<div class="call ${c.status}"><div class="num"><span><small>Sto</small><b>${c.sto}</b></span></div><div class="mid"><h3>${c.vrsta==="racun"?"Traži račun":"Zove konobara"}<span class="kind ${c.vrsta}">${c.vrsta==="racun"?"Račun":"Poziv"}</span></h3><p>${c.reon} · ${ago(c.vreme)}</p></div><button class="act" data-id="${c.id}">${c.status==="novo"?"Preuzmi":"✓ Preuzeto"}</button></div>`).join("")
-    : `<div class="empty">Trenutno nema poziva.<br>Kada gost pozove, ovde se pojavljuje broj stola.</div>`;
+const secs = iso => Math.max(0, Math.round((Date.now() - new Date(iso))/1000));
+const ago = iso => { const s = secs(iso); return s < 10 ? "upravo" : s < 60 ? `pre ${s} s` : s < 3600 ? `pre ${Math.floor(s/60)} min` : new Date(iso).toLocaleTimeString("sr-RS",{hour:"2-digit",minute:"2-digit"}); };
+const short = iso => { const s = secs(iso); return s < 60 ? s + " s" : Math.floor(s/60) + " min"; };
+const ch = (x,y,w,h) => `<rect class="ch" x="${x}" y="${y}" width="${w}" height="${h}" rx="4"/>`;
+function table([n,x,y,k], c){
+  let g = "", ring = "";
+  if(k==="r"){ g = ch(x-9,y-36,18,10)+ch(x-9,y+26,18,10)+ch(x-36,y-9,10,18)+ch(x+26,y-9,10,18)+`<circle class="top" cx="${x}" cy="${y}" r="23"/>`; ring = `<circle class="ring" cx="${x}" cy="${y}" r="27"/>`; }
+  if(k==="s"){ g = ch(x-9,y-35,18,10)+ch(x-9,y+25,18,10)+ch(x-35,y-9,10,18)+ch(x+25,y-9,10,18)+`<rect class="top" x="${x-22}" y="${y-22}" width="44" height="44" rx="9"/>`; ring = `<rect class="ring" x="${x-27}" y="${y-27}" width="54" height="54" rx="12"/>`; }
+  if(k==="l"){ g = [-28,0,28].map(d => ch(x+d-9,y-33,18,10)+ch(x+d-9,y+23,18,10)).join("")+`<rect class="top" x="${x-44}" y="${y-20}" width="88" height="40" rx="9"/>`; ring = `<rect class="ring" x="${x-49}" y="${y-25}" width="98" height="50" rx="12"/>`; }
+  const cls = c ? (c.vrsta==="racun" ? "t call bill" : "t call") : "t";
+  return `<g class="${cls}" data-n="${n}">${ring}${g}<text x="${x}" y="${c ? y-4 : y}">${n}</text><text class="tm" x="${x}" y="${y+10}">${c ? short(c.vreme) : ""}</text></g>`;
 }
+function render(){
+  const all = load(), open = all.filter(c => c.status==="novo");
+  const active = n => open.find(c => c.sto===n);
+  const cnt = id => open.filter(c => zoneOfTable(c.sto)?.id===id).length;
+  $("#zones").innerHTML = `<button class="${zone==="all"?"on":""}" data-z="all">Svi reoni<b class="${open.length?"has":""}">${open.length}</b></button>` +
+    PLAN.map(z => `<button class="${zone===z.id?"on":""}" data-z="${z.id}">${z.name}<b class="${cnt(z.id)?"has":""}">${cnt(z.id)}</b></button>`).join("");
+  $("#plans").innerHTML = PLAN.filter(z => zone==="all" || zone===z.id).map(z =>
+    `<section class="plan"><h2><span>${z.full}</span><em>${cnt(z.id) ? cnt(z.id) + " čeka" : "mirno"}</em></h2>
+     <svg viewBox="0 0 400 230" role="img" aria-label="Plan: ${z.name}"><rect class="room" x="2" y="2" width="396" height="226" rx="16"/>${z.deco}${z.tables.map(t => table(t, active(t[0]))).join("")}</svg></section>`).join("");
+  const mine = all.filter(c => zone==="all" || zoneOfTable(c.sto)?.id===zone), mo = mine.filter(c => c.status==="novo");
+  $("#sN").textContent = mo.length; $("#sD").textContent = mine.length - mo.length;
+  $("#sT").textContent = mo.length ? short(mo[mo.length-1].vreme) : "–";
+  $("#list").innerHTML = mine.length ? mine.slice(0,8).map(c => `<div class="call ${c.status} ${c.vrsta}"><div class="num"><span><small>Sto</small><b>${c.sto}</b></span></div><div class="mid"><h3>${c.vrsta==="racun"?"Traži račun":"Zove konobara"}</h3><p>${zoneOfTable(c.sto)?.full || ""} · ${ago(c.vreme)}</p></div><button class="act" data-id="${c.id}">${c.status==="novo"?"Preuzmi":"✓"}</button></div>`).join("")
+    : `<div class="empty">Trenutno nema poziva.<br>Kada gost pozove, njegov sto zasvetli na planu.</div>`;
+}
+function take(pred){ const a = load(); let hit = false; a.forEach(c => { if(c.status==="novo" && pred(c)){ c.status = "gotovo"; hit = true; } }); if(hit){ save(a); render(); } }
 function notify(c){
   if(seen.has(c.id)) return; seen.add(c.id);
-  if(zone!==ZONES[0] && c.reon!==zone) return;
-  $("#bn").textContent = c.sto; $("#bt").textContent = `Sto ${c.sto} ${c.vrsta==="racun"?"traži račun":"zove konobara"}`; $("#bs").textContent = `${c.reon} · upravo`;
+  const z = zoneOfTable(c.sto); if(zone!=="all" && z?.id!==zone) return;
+  $("#bn").textContent = c.sto; $("#bt").textContent = `Sto ${c.sto} ${c.vrsta==="racun"?"traži račun":"zove konobara"}`; $("#bs").textContent = `${z?.full || ""} · upravo`;
   $("#banner").classList.add("show"); clearTimeout(notify.t); notify.t = setTimeout(() => $("#banner").classList.remove("show"), 4200);
   if(navigator.vibrate) navigator.vibrate([120,60,120]);
   try{ const a = new (window.AudioContext||window.webkitAudioContext)(), o = a.createOscillator(), g = a.createGain(); o.connect(g); g.connect(a.destination); o.frequency.value = 880; g.gain.setValueAtTime(.12, a.currentTime); g.gain.exponentialRampToValueAtTime(.0001, a.currentTime+.5); o.start(); o.stop(a.currentTime+.5); }catch(e){}
@@ -97,10 +168,11 @@ load().forEach(c => seen.add(c.id));
 addEventListener("storage", e => { if(e.key===KEY){ const a = load(); if(a[0]) notify(a[0]); render(); } });
 if("BroadcastChannel" in window) new BroadcastChannel("vrbak-pozivi").onmessage = e => { notify(e.data); render(); };
 $("#zones").onclick = e => { const b = e.target.closest("[data-z]"); if(b){ zone = b.dataset.z; render(); } };
-$("#list").onclick = e => { const b = e.target.closest("[data-id]"); if(!b) return; const a = load(), c = a.find(x => x.id==b.dataset.id); if(c){ c.status = "gotovo"; save(a); render(); } };
-$("#test").onclick = () => { const n = 1 + Math.floor(Math.random()*18), c = {id:Date.now(), sto:n, reon:n<=6?ZONES[1]:n<=12?ZONES[2]:ZONES[3], vrsta:Math.random()<.3?"racun":"konobar", vreme:new Date().toISOString(), status:"novo"}; const a = load(); a.unshift(c); save(a.slice(0,30)); notify(c); render(); };
+$("#plans").onclick = e => { const t = e.target.closest("[data-n]"); if(t) take(c => c.sto === +t.dataset.n); };
+$("#list").onclick = e => { const b = e.target.closest("[data-id]"); if(b) take(c => c.id == b.dataset.id); };
+$("#test").onclick = () => { const n = 1 + Math.floor(Math.random()*20), c = {id:Date.now(), sto:n, reon:zoneOfTable(n).full, vrsta:Math.random()<.3?"racun":"konobar", vreme:new Date().toISOString(), status:"novo"}; const a = load(); a.unshift(c); save(a.slice(0,30)); notify(c); render(); };
 $("#wipe").onclick = () => { save([]); render(); };
-setInterval(render, 15000); render();
+setInterval(render, 5000); render();
 </script>
 </body>
 </html>

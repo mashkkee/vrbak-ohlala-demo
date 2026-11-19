@@ -87,6 +87,10 @@ mark{background:#fbe3c2;color:inherit;border-radius:3px;padding:0 1px}
 .tables{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:18px}
 .tables button{height:44px;border-radius:12px;border:1px solid var(--line);background:var(--white);font-weight:700}
 .tables button.on{background:var(--green);color:var(--cream);border-color:var(--green)}
+.where{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:2px 14px;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:16px}
+.where b{grid-row:span 2;background:var(--orange);color:#1b1206;border-radius:12px;padding:12px 16px;font-size:1.15rem;font-weight:800;white-space:nowrap}
+.where span{font-weight:700}
+.where small{color:var(--muted);font-size:.78rem}
 .sheet .go{width:100%;height:54px;border-radius:16px;background:var(--orange);color:#1b1206;font-weight:700;font-size:1rem}
 .sheet .x{width:100%;height:46px;margin-top:8px;color:var(--muted);font-weight:600}
 .ok{text-align:center;padding:8px 0 4px}
@@ -144,17 +148,17 @@ const T = {
   sr:{ph:"Pretraži jela i pića",all:"Sve",veg:"Vegetarijansko",rec:"Preporuka",v:"Veg",none:"Nema rezultata za",items:"stavki",sto:"Sto",
       note:"Demo digitalnog menija. Jela i cene su preuzeti iz menija koji je restoran objavio na Instagramu u februaru 2024, pa aktuelne cene mogu da se razlikuju.",
       callT:"Pozvati konobara?",billT:"Zatražiti račun?",callP:"Konobar zadužen za Vaš deo sale dobija obaveštenje na telefon sa brojem stola.",
-      pick:"Izaberite sto (u pravoj verziji QR kod sam zna broj stola):",send:"Pošalji",cancel:"Odustani",
+      pick:"Broj stola je upisan u QR kod koji ste skenirali.",send:"Da, pozovi",cancel:"Odustani",
       okC:"Konobar je obavešten",okB:"Račun stiže",okP:(s,z)=>`Sto ${s} · ${z}. Neko dolazi do Vas za koji minut.`,close:"U redu",
-      demo:"Demo: otvorite <a href='konobar.html' target='_blank'>ekran konobara</a> u drugom prozoru i videćete poziv."},
+      demo:"Demo: otvorite <a href='konobar.html' target='_blank'>plan sale za konobara</a> u drugom prozoru i videćete kako Vaš sto svetli."},
   en:{ph:"Search food and drinks",all:"All",veg:"Vegetarian",rec:"Chef's pick",v:"Veg",none:"No results for",items:"items",sto:"Table",
       note:"Digital menu demo. Dishes and prices come from the menu the restaurant published on Instagram in February 2024, so current prices may differ.",
       callT:"Call the waiter?",billT:"Ask for the bill?",callP:"The waiter in charge of your section gets a notification on their phone with your table number.",
-      pick:"Choose your table (in the live version the QR code knows the table):",send:"Send",cancel:"Cancel",
+      pick:"The table number comes from the QR code you scanned.",send:"Yes, call",cancel:"Cancel",
       okC:"The waiter has been notified",okB:"The bill is on its way",okP:(s,z)=>`Table ${s} · ${z}. Someone will be with you shortly.`,close:"OK",
-      demo:"Demo: open the <a href='konobar.html' target='_blank'>waiter screen</a> in another window to see the call."}
+      demo:"Demo: open the <a href='konobar.html' target='_blank'>waiter floor plan</a> in another window to see your table light up."}
 };
-const ZONES = [[1,6,"Reon A · bašta"],[7,12,"Reon B · sala"],[13,18,"Reon C · sprat"]];
+const ZONES = [[1,8,"Reon A · terasa"],[9,14,"Reon B · sala"],[15,20,"Reon C · gornja terasa"]];
 const zoneOf = n => (ZONES.find(z => n>=z[0] && n<=z[1]) || ZONES[1])[2];
 let lang = "sr", veg = false, q = "";
 let sto = parseInt(new URLSearchParams(location.search).get("sto")) || 7;
@@ -197,13 +201,11 @@ document.querySelectorAll(".lang button").forEach(b => b.onclick = () => { lang 
 const ch = "BroadcastChannel" in window ? new BroadcastChannel("vrbak-pozivi") : null;
 function ask(kind){
   const t = T[lang];
-  $("#box").innerHTML = `<h3>${kind==="racun"?t.billT:t.callT}</h3><p>${t.callP}</p><p style="font-size:.82rem;margin-top:-6px">${t.pick}</p>
-    <div class="tables">${Array.from({length:18},(_,i)=>`<button class="${i+1===sto?"on":""}" data-n="${i+1}">${i+1}</button>`).join("")}</div>
-    <button class="go">${t.send} · ${t.sto} ${sto}</button><button class="x">${t.cancel}</button>`;
+  $("#box").innerHTML = `<h3>${kind==="racun"?t.billT:t.callT}</h3><p>${t.callP}</p>
+    <div class="where"><b>${t.sto} ${sto}</b><span>${zoneOf(sto)}</span><small>${t.pick}</small></div>
+    <button class="go">${t.send}</button><button class="x">${t.cancel}</button>`;
   $("#sheet").classList.add("open");
   $("#box").onclick = e => {
-    const n = e.target.closest("[data-n]");
-    if(n){ sto = +n.dataset.n; $("#stoTxt").textContent = `${t.sto} ${sto}`; ask(kind); return; }
     if(e.target.closest(".x")) return $("#sheet").classList.remove("open");
     if(e.target.closest(".go")) send(kind);
   };
