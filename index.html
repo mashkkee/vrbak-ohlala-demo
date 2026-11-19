@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vrbak Oh la la · Restoran u Hotelu Vrbak, Novi Pazar</title>
+<meta name="description" content="Restoran Vrbak Oh la la u Hotelu Vrbak, Novi Pazar. Stejkovi, paste, pizza, riba, dezerti i sladoled. Svaki dan od 07 do 23h. Rezervacije: 069 406 4070.">
+<meta name="theme-color" content="#1c2d28">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1c2d28; --green-2:#27403a; --green-3:#35554c; --ink:#121a17;
+  --cream:#f4eee2; --paper:#fbf8f2; --white:#fff; --orange:#e08a2e; --orange-d:#c47320;
+  --text:#4a5a54; --muted:#7d8b85; --line:rgba(28,45,40,.12); --line-l:rgba(244,238,226,.16);
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Manrope",system-ui,sans-serif; --script:"Parisienne",cursive;
+  --ease:cubic-bezier(.2,.7,.2,1); --r:20px; --shadow:0 30px 70px -30px rgba(18,26,23,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:clamp(2.2rem,4.6vw,3.6rem)}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange)}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.script{font-family:var(--script);color:var(--orange);font-weight:400}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:700;font-size:.95rem;transition:transform .25s var(--ease),background .25s,box-shadow .25s,color .25s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-o{background:var(--orange);color:#1b1206;box-shadow:0 14px 30px -12px rgba(224,138,46,.7)}
+.btn-o:hover{background:#eb9a42}
+.btn-g{border:1px solid rgba(244,238,226,.4);color:var(--cream)}
+.btn-g:hover{background:rgba(244,238,226,.1)}
+.btn-d{background:var(--green);color:var(--cream)}
+.btn-d:hover{background:var(--green-2)}
+section{padding:clamp(72px,10vw,128px) 0}
+
+/* demo traka */
+.demo{background:#0e1614;color:#cfd8d3;font-size:.78rem;text-align:center;padding:8px 16px;letter-spacing:.02em}
+.demo b{color:var(--orange);font-weight:700}
+
+/* navigacija */
+.nav{position:sticky;top:0;z-index:50;background:rgba(28,45,40,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line-l);color:var(--cream)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+.logo{display:flex;align-items:baseline;gap:8px;font-family:var(--serif);font-size:1.55rem;font-weight:600;letter-spacing:.04em}
+.logo span{font-family:var(--script);font-size:1.5rem;color:var(--orange);letter-spacing:0}
+.links{display:flex;gap:30px;font-size:.9rem;font-weight:500}
+.links a{opacity:.82;transition:opacity .2s,color .2s;position:relative}
+.links a:hover{opacity:1;color:var(--orange)}
+.nav .btn{padding:11px 20px;font-size:.86rem}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line-l);align-items:center;justify-content:center}
+.drawer{display:none;flex-direction:column;gap:2px;padding:10px 20px 22px;border-top:1px solid var(--line-l)}
+.drawer a{padding:13px 0;border-bottom:1px solid var(--line-l);font-weight:500}
+.drawer.open{display:flex}
+
+/* hero */
+.hero{position:relative;min-height:min(92vh,880px);display:flex;align-items:flex-end;color:var(--cream);background:var(--green);padding:0;isolation:isolate}
+.hero .bg{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero .bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:zoom 18s var(--ease) forwards}
+@keyframes zoom{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,26,23,.6) 0%,rgba(18,26,23,.42) 40%,rgba(18,26,23,.94) 100%),linear-gradient(90deg,rgba(18,26,23,.55),rgba(18,26,23,0) 70%)}
+.hero .wrap{padding:120px 0 64px}
+.hero h1{font-size:clamp(2.7rem,6.6vw,5.4rem);max-width:13ch;margin:20px 0 6px}
+.hero h1 em{font-style:italic;color:#f2c58d}
+.hero .script{font-size:clamp(2rem,4.2vw,3rem);display:block;margin-bottom:18px}
+.hero p{max-width:52ch;font-size:1.08rem;color:#dfe6e1}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:56px;background:var(--line-l);border:1px solid var(--line-l);border-radius:var(--r);overflow:hidden;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.facts div{background:rgba(18,26,23,.55);padding:20px 24px;display:flex;gap:14px;align-items:center}
+.facts .i{color:var(--orange);width:24px;height:24px}
+.facts small{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#aebbb5}
+.facts b{font-weight:600;font-size:.98rem}
+
+/* o nama */
+.about{background:var(--paper)}
+.about .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(36px,6vw,90px);align-items:center}
+.about p{color:var(--text);margin-top:20px;font-size:1.05rem}
+.about h2{margin-top:18px}
+.collage{position:relative;aspect-ratio:1/1.05}
+.collage img{position:absolute;object-fit:cover;border-radius:var(--r);box-shadow:var(--shadow)}
+.collage img:nth-child(1){inset:0 18% 16% 0;width:82%;height:84%}
+.collage img:nth-child(2){right:0;bottom:0;width:52%;height:48%;border:8px solid var(--paper)}
+.badge{position:absolute;left:-14px;bottom:8%;background:var(--green);color:var(--cream);border-radius:50%;width:124px;height:124px;display:grid;place-items:center;text-align:center;font-family:var(--serif);box-shadow:var(--shadow);line-height:1.1}
+.badge b{display:block;font-size:2rem;color:var(--orange);font-weight:600}
+.badge small{font-family:var(--sans);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase}
+.points{display:grid;grid-template-columns:1fr 1fr;gap:18px 26px;margin-top:32px}
+.points div{display:flex;gap:12px;align-items:flex-start;font-weight:600;font-size:.95rem}
+.points .i{color:var(--orange);margin-top:3px}
+
+/* izdvajamo */
+.picks{background:var(--green);color:var(--cream)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:46px}
+.head p{max-width:46ch;color:#b9c6c0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;isolation:isolate;background:var(--green-2)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .9s var(--ease)}
+.card:hover img{transform:scale(1.07)}
+.card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,26,23,0) 35%,rgba(18,26,23,.94) 100%)}
+.card .in{position:absolute;inset:auto 0 0 0;padding:24px}
+.card small{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);font-weight:700}
+.card h3{font-size:1.7rem;margin:6px 0 6px}
+.card p{font-size:.86rem;color:#c9d3ce;line-height:1.5}
+.price{position:absolute;top:18px;right:18px;background:rgba(18,26,23,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line-l);padding:7px 14px;border-radius:999px;font-weight:700;font-size:.86rem}
+.price i{font-style:normal;color:var(--orange);font-size:.72rem;margin-left:3px}
+
+/* meni pregled */
+.menu{background:var(--cream)}
+.tabs{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;margin-bottom:34px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:11px 20px;border-radius:999px;border:1px solid var(--line);font-weight:600;font-size:.9rem;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+.tab:hover{border-color:var(--green)}
+.tab.on{background:var(--green);color:var(--cream);border-color:var(--green)}
+.list{display:grid;grid-template-columns:1fr 1fr;gap:6px 64px}
+.row{padding:18px 0;border-bottom:1px dashed var(--line);animation:up .5s var(--ease) both}
+@keyframes up{from{opacity:0;transform:translateY(10px)}}
+.row .top{display:flex;align-items:baseline;gap:12px}
+.row h3{font-size:1.4rem;font-weight:600}
+.row .dots{flex:1;border-bottom:1px dotted rgba(28,45,40,.35);transform:translateY(-5px)}
+.row b{font-weight:700;white-space:nowrap}
+.row b i{font-style:normal;font-size:.72rem;color:var(--muted);margin-left:3px}
+.row p{color:var(--text);font-size:.9rem;margin-top:4px}
+.menu .more{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-top:40px;padding:26px 30px;background:var(--white);border-radius:var(--r);border:1px solid var(--line)}
+.menu .more p{color:var(--text);max-width:52ch}
+
+/* sladoled */
+.ice{position:relative;color:var(--cream);isolation:isolate;padding:0}
+.ice .bg{position:absolute;inset:0;z-index:-2}
+.ice .bg img{width:100%;height:100%;object-fit:cover}
+.ice::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(18,26,23,.93) 0%,rgba(18,26,23,.72) 50%,rgba(18,26,23,.2) 100%)}
+.ice .wrap{padding:clamp(80px,11vw,140px) 0}
+.ice h2{max-width:14ch;margin:18px 0}
+.ice p{max-width:46ch;color:#d7dfdb}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 34px;max-width:560px}
+.chips span{padding:8px 16px;border-radius:999px;border:1px solid var(--line-l);font-size:.86rem;background:rgba(18,26,23,.4)}
+
+/* digitalni meni */
+.qr{background:var(--paper)}
+.qr .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,90px);align-items:center}
+.phone{justify-self:center;width:min(320px,82vw);aspect-ratio:9/18.6;border-radius:44px;background:var(--ink);padding:11px;box-shadow:0 50px 90px -40px rgba(18,26,23,.6);position:relative}
+.phone::before{content:"";position:absolute;top:20px;left:50%;translate:-50% 0;width:86px;height:22px;border-radius:999px;background:var(--ink);z-index:2}
+.phone iframe{width:100%;height:100%;border:0;border-radius:34px;background:var(--green)}
+.qr h2{margin:18px 0}
+.qr p{color:var(--text);font-size:1.05rem}
+.steps{display:grid;gap:16px;margin:30px 0 34px}
+.steps div{display:flex;gap:16px;align-items:flex-start}
+.steps i{flex:none;width:36px;height:36px;border-radius:50%;background:var(--green);color:var(--cream);display:grid;place-items:center;font-style:normal;font-weight:700;font-size:.9rem}
+.steps b{display:block}
+.steps span{color:var(--text);font-size:.93rem}
+
+/* galerija */
+.gal{background:var(--green);color:var(--cream)}
+.mos{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:14px}
+.mos a{border-radius:var(--r);overflow:hidden;position:relative}
+.mos img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease),filter .4s}
+.mos a:hover img{transform:scale(1.06)}
+.mos a:nth-child(1){grid-column:span 2;grid-row:span 2}
+.mos a:nth-child(6){grid-column:span 4}
+.insta{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--orange)}
+
+/* rezervacije */
+.res{background:var(--cream)}
+.res .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(30px,5vw,72px);align-items:start}
+.res p.lead{color:var(--text);margin:18px 0 28px;font-size:1.05rem}
+.hours{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:8px 24px}
+.hours div{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+.hours div:last-child{border:0}
+.hours b{font-weight:700}
+form{background:var(--white);border-radius:calc(var(--r) + 6px);padding:clamp(24px,3.4vw,40px);box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 1fr;gap:16px}
+form h3{grid-column:1/-1;font-size:1.9rem}
+label{display:grid;gap:7px;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+label.full{grid-column:1/-1}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--paper);outline:none;transition:border-color .2s,box-shadow .2s;width:100%;text-transform:none;letter-spacing:0;font-weight:500}
+input:focus,select:focus,textarea:focus{border-color:var(--orange);box-shadow:0 0 0 4px rgba(224,138,46,.18)}
+textarea{resize:vertical;min-height:88px}
+form .btn{grid-column:1/-1;padding:17px}
+form small{grid-column:1/-1;color:var(--muted);font-size:.8rem;text-align:center}
+.toast{grid-column:1/-1;display:none;background:#e9f3ee;border:1px solid #bcd9c9;color:#1f4a37;border-radius:14px;padding:14px 16px;font-size:.92rem}
+.toast.show{display:block}
+
+/* kontakt */
+.loc{padding:0;background:var(--green);color:var(--cream)}
+.loc .wrap{display:grid;grid-template-columns:1fr 1.25fr;gap:0;width:100%;max-width:none}
+.loc .txt{padding:clamp(56px,8vw,110px) clamp(20px,6vw,90px)}
+.loc h2{margin:18px 0 28px}
+.loc ul{list-style:none;display:grid;gap:20px}
+.loc li{display:flex;gap:16px;align-items:flex-start}
+.loc li .i{color:var(--orange);margin-top:4px;width:22px;height:22px}
+.loc li small{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#aebbb5}
+.loc li b{font-weight:600;font-size:1.05rem}
+.loc iframe{width:100%;height:100%;min-height:440px;border:0;filter:grayscale(.25) contrast(1.05)}
+
+footer{background:#0e1614;color:#9aa8a2;padding:44px 0;font-size:.86rem}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer .logo{color:var(--cream)}
+footer a:hover{color:var(--orange)}
+
+.call{display:none}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .links,.nav .btn{display:none}.burger{display:flex}
+  .about .wrap,.qr .wrap,.res .wrap,.loc .wrap{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr 1fr}
+  .list{grid-template-columns:1fr}
+  .mos{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
+  .mos a:nth-child(6){grid-column:span 2}
+  .loc iframe{min-height:340px}
+  .qr .phone{order:2}
+}
+@media (max-width:640px){
+  .facts{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr}
+  .card{aspect-ratio:4/4.4}
+  .points{grid-template-columns:1fr}
+  form{grid-template-columns:1fr}
+  .hero .wrap{padding:90px 0 40px}
+  .badge{left:6px;width:104px;height:104px}
+  .call{display:flex;position:fixed;left:14px;right:14px;bottom:14px;z-index:60;gap:10px}
+  .call .btn{flex:1;padding:15px 10px;box-shadow:0 18px 40px -14px rgba(0,0,0,.6)}
+  footer{padding-bottom:96px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="demo"><b>Demo verzija</b> · primer sajta za restoran Vrbak Oh la la · fotografije su ilustrativne i menjaju se Vašim</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#vrh">VRBAK <span>Oh la la</span></a>
+    <nav class="links">
+      <a href="#o-nama">O nama</a><a href="#meni">Meni</a><a href="#sladoled">Sladoled</a><a href="#galerija">Galerija</a><a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="btn btn-o" href="#rezervacije">Rezerviši sto</a>
+    <button class="burger" aria-label="Meni" onclick="document.getElementById('drawer').classList.toggle('open')"><svg class="i" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <div class="drawer" id="drawer">
+    <a href="#o-nama">O nama</a><a href="#meni">Meni</a><a href="#sladoled">Sladoled</a><a href="#galerija">Galerija</a><a href="#rezervacije">Rezervacije</a><a href="#kontakt">Kontakt</a>
+  </div>
+</header>
+
+<section class="hero" id="vrh">
+  <div class="bg"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2000&q=75" alt=""></div>
+  <div class="wrap">
+    <span class="eyebrow">Hotel Vrbak · Novi Pazar · od 2022.</span>
+    <h1>Odlična hrana, <em>od jutra do mraka</em></h1>
+    <span class="script">Oh la la</span>
+    <p>Mesto za sve koji umeju da uživaju. Stejkovi, paste, pizza iz peći, riba, domaći dezerti i sladoled, u samom centru grada, na Keju.</p>
+    <div class="cta">
+      <a class="btn btn-o" href="meni.html">Pogledaj meni <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-g" href="tel:+381694064070"><svg class="i" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg> 069 406 4070</a>
+    </div>
+    <div class="facts">
+      <div><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><small>Radno vreme</small><b>Svaki dan 07:00 – 23:00</b></span></div>
+      <div><svg class="i" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.800 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span><small>Lokacija</small><b>Kej 37. sandžačke divizije, Hotel Vrbak</b></span></div>
+      <div><svg class="i" viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 10h16M9 3v4M15 3v4"/></svg><span><small>Rezervacije</small><b>Telefonom ili preko sajta</b></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="o-nama">
+  <div class="wrap">
+    <div class="collage rv">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1100&q=72" alt="Enterijer restorana" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=72" alt="Jelo iz kuhinje" loading="lazy">
+      <div class="badge"><span><small>od</small><b>2022</b><small>godine</small></span></div>
+    </div>
+    <div class="rv">
+      <span class="eyebrow">O nama</span>
+      <h2>Restoran u srcu Novog Pazara</h2>
+      <p>Vrbak Oh la la nalazi se u Hotelu Vrbak, na Keju 37. sandžačke divizije. Kod nas dan počinje jutarnjom kafom, nastavlja se ručkom i večerom, a završava se dezertom ili sladoledom iz naše vitrine.</p>
+      <p>Na meniju su stejkovi i jela od teletine i jagnjetine, piletina na devet načina, paste, pizza, riba i morski plodovi, kao i jela sa roštilja.</p>
+      <div class="points">
+        <div><svg class="i" viewBox="0 0 24 24"><path d="M5 12l4 4L19 7"/></svg>Više od 100 jela i pića na meniju</div>
+        <div><svg class="i" viewBox="0 0 24 24"><path d="M5 12l4 4L19 7"/></svg>Otvoreno svakog dana, 07 – 23h</div>
+        <div><svg class="i" viewBox="0 0 24 24"><path d="M5 12l4 4L19 7"/></svg>Sladoled i dezerti iz sopstvene vitrine</div>
+        <div><svg class="i" viewBox="0 0 24 24"><path d="M5 12l4 4L19 7"/></svg>U centru grada, u Hotelu Vrbak</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="picks">
+  <div class="wrap">
+    <div class="head rv">
+      <div><span class="eyebrow">Izdvajamo</span><h2 style="margin-top:16px">Preporuka kuhinje</h2></div>
+      <p>Jela koja gosti najčešće naručuju. Ceo meni, sa svim cenama, uvek je dostupan na telefonu.</p>
+    </div>
+    <div class="grid3">
+      <article class="card rv"><img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=900&q=72" alt="" loading="lazy"><span class="price">1.520<i>RSD</i></span><div class="in"><small>Glavna jela</small><h3>„New York” steak</h3><p>Teleći ramstek, rukola, parmezan, krispi čips, pršuta</p></div></article>
+      <article class="card rv"><img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=900&q=72" alt="" loading="lazy"><span class="price">1.300<i>RSD</i></span><div class="in"><small>Riba</small><h3>Losos</h3><p>File lososa, grilovane tikvice, krompir pire, citrus sos, nar</p></div></article>
+      <article class="card rv"><img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=900&q=72" alt="" loading="lazy"><span class="price">1.150<i>RSD</i></span><div class="in"><small>Paste</small><h3>Taljatele Cardinal</h3><p>Juneći biftek u umaku od tartufa, parmezan, orašasti plodovi</p></div></article>
+      <article class="card rv"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=72" alt="" loading="lazy"><span class="price">600<i>RSD</i></span><div class="in"><small>Pizza</small><h3>Capricciosa</h3><p>Pelat, sir, sudžuk, pršuta, pečurke, origano</p></div></article>
+      <article class="card rv"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=72" alt="" loading="lazy"><span class="price">500<i>RSD</i></span><div class="in"><small>Obrok salate</small><h3>Cezar</h3><p>Piletina, jaje, parmezan, tost hleb, francuski dresing</p></div></article>
+      <article class="card rv"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=72" alt="" loading="lazy"><span class="price">470<i>RSD</i></span><div class="in"><small>Burgeri</small><h3>Burger Američki</h3><p>Čedar sir, američki krompir, paradajz salata, burger sos</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="meni">
+  <div class="wrap">
+    <div class="head rv">
+      <div><span class="eyebrow">Meni</span><h2 style="margin-top:16px">Šta danas jedemo?</h2></div>
+      <p style="color:var(--text)">Izaberite kategoriju. Ovde je izbor iz svake, a ceo meni otvara se jednim klikom.</p>
+    </div>
+    <div class="tabs" id="tabs"></div>
+    <div class="list" id="list"></div>
+    <div class="more rv">
+      <p><b>Ceo meni na telefonu.</b> Sva jela i pića sa cenama, pretragom i opisima na srpskom i engleskom.</p>
+      <a class="btn btn-d" href="meni.html">Otvori ceo meni <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="ice" id="sladoled">
+  <div class="bg"><img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=1900&q=72" alt="" loading="lazy"></div>
+  <div class="wrap rv">
+    <span class="eyebrow">Sladoled i dezerti</span>
+    <h2>Slatko za kraj, ili za početak</h2>
+    <p>Sladoled iz naše vitrine i šesnaest dezerata, od tiramisua i trileća do bajadere i palačinki. Svaki dezert je 350 dinara.</p>
+    <div class="chips"><span>Tiramisu</span><span>Trileće</span><span>Cheesecake</span><span>Kinder bueno</span><span>Bajadera</span><span>Nugat torta</span><span>Black cherry</span><span>Palačinke</span></div>
+    <a class="btn btn-o" href="meni.html#desert">Svi dezerti</a>
+  </div>
+</section>
+
+<section class="qr">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Digitalni meni</span>
+      <h2>Meni na stolu, bez štampanja</h2>
+      <p>Gost skenira QR kod na stolu i meni se otvara u telefonu, bez aplikacije. Kada promenite cenu ili dodate jelo, promena je odmah vidljiva na svim stolovima.</p>
+      <div class="steps">
+        <div><i>1</i><span><b>QR kod na svakom stolu</b>Nalepnica ili stalak sa Vašim logom.</span></div>
+        <div><i>2</i><span><b>Meni na srpskom i engleskom</b>Gosti hotela biraju jezik jednim dodirom.</span></div>
+        <div><i>3</i><span><b>Pretraga i kategorije</b>Gost za nekoliko sekundi nalazi ono što traži.</span></div>
+        <div><i>4</i><span><b>Dugme „Pozovi konobara”</b>Jedan dodir, i konobar zadužen za taj reon dobija obaveštenje na telefon sa brojem stola.</span></div>
+      </div>
+      <div class="cta" style="margin-top:0"><a class="btn btn-d" href="meni.html">Isprobaj digitalni meni</a><a class="btn" style="border:1px solid var(--line)" href="konobar.html" target="_blank">Ekran konobara</a></div>
+    </div>
+    <div class="phone rv"><iframe src="meni.html" title="Digitalni meni" loading="lazy"></iframe></div>
+  </div>
+</section>
+
+<section class="gal" id="galerija">
+  <div class="wrap">
+    <div class="head rv">
+      <div><span class="eyebrow">Galerija</span><h2 style="margin-top:16px">Atmosfera i tanjiri</h2></div>
+      <a class="insta" href="https://www.instagram.com/vrbak_ohlala/" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><path d="M16.800 7.200h.01"/></svg>@vrbak_ohlala</a>
+    </div>
+    <div class="mos rv">
+      <a><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=72" alt="" loading="lazy"></a>
+      <a><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=72" alt="" loading="lazy"></a>
+      <a><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=72" alt="" loading="lazy"></a>
+      <a><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=700&q=72" alt="" loading="lazy"></a>
+      <a><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=700&q=72" alt="" loading="lazy"></a>
+      <a><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1800&q=72" alt="" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<section class="res" id="rezervacije">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Rezervacije</span>
+      <h2 style="margin-top:16px">Rezervišite sto</h2>
+      <p class="lead">Za ručak, večeru, rođendan ili poslovni sastanak. Pošaljite upit, a mi Vam potvrđujemo telefonom.</p>
+      <div class="hours">
+        <div><span>Ponedeljak – nedelja</span><b>07:00 – 23:00</b></div>
+        <div><span>Telefon</span><b><a href="tel:+381694064070">069 406 4070</a></b></div>
+        <div><span>Adresa</span><b>Hotel Vrbak, Kej 37. sandžačke divizije</b></div>
+      </div>
+    </div>
+    <form class="rv" id="frm" onsubmit="return rez(event)">
+      <h3>Upit za rezervaciju</h3>
+      <label>Ime i prezime<input required name="ime" autocomplete="name" placeholder="Vaše ime"></label>
+      <label>Telefon<input required name="tel" type="tel" autocomplete="tel" placeholder="06x xxx xxxx"></label>
+      <label>Datum<input required name="datum" type="date"></label>
+      <label>Vreme<select name="vreme"><option>12:00</option><option>13:00</option><option>14:00</option><option>18:00</option><option selected>19:00</option><option>20:00</option><option>21:00</option></select></label>
+      <label class="full">Broj osoba<select name="osoba"><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7 – 10</option><option>Više od 10</option></select></label>
+      <label class="full">Napomena<textarea name="nap" placeholder="Rođendan, mesto pored prozora, dečja stolica…"></textarea></label>
+      <div class="toast" id="toast"></div>
+      <button class="btn btn-o" type="submit">Pošalji upit</button>
+      <small>Demo: u pravoj verziji upit stiže restoranu na WhatsApp ili mejl.</small>
+    </form>
+  </div>
+</section>
+
+<section class="loc" id="kontakt">
+  <div class="wrap">
+    <div class="txt rv">
+      <span class="eyebrow">Kontakt</span>
+      <h2>Vidimo se na Keju</h2>
+      <ul>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.800 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span><small>Adresa</small><b>Hotel Vrbak, Kej 37. sandžačke divizije, 36300 Novi Pazar</b></span></li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Telefon</small><b><a href="tel:+381694064070">069 406 4070</a></b></span></li>
+        <li><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><small>Radno vreme</small><b>Svaki dan 07:00 – 23:00</b></span></li>
+        <li><svg class="i" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><path d="M16.800 7.200h.01"/></svg><span><small>Instagram</small><b><a href="https://www.instagram.com/vrbak_ohlala/" target="_blank" rel="noopener">@vrbak_ohlala</a></b></span></li>
+      </ul>
+      <div class="cta"><a class="btn btn-o" href="https://www.google.com/maps/search/?api=1&query=Hotel+Vrbak+Novi+Pazar" target="_blank" rel="noopener">Otvori u mapama</a></div>
+    </div>
+    <iframe title="Mapa" loading="lazy" src="https://www.google.com/maps?q=Hotel+Vrbak+Novi+Pazar&z=17&output=embed"></iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#vrh">VRBAK <span>Oh la la</span></a>
+    <span>Demo sajt · izrada: Erhad Masovic · 060 432 5324</span>
+    <span><a href="meni.html">Meni</a> · <a href="#rezervacije">Rezervacije</a> · <a href="#kontakt">Kontakt</a></span>
+  </div>
+</footer>
+
+<div class="call">
+  <a class="btn btn-d" href="meni.html">Meni</a>
+  <a class="btn btn-o" href="tel:+381694064070">Pozovi</a>
+</div>
+
+<script src="menu.js"></script>
+<script>
+const fmt = p => typeof p === "number" ? p.toLocaleString("sr-RS") : p;
+const tabs = document.getElementById("tabs"), list = document.getElementById("list");
+const SHOW = ["glavna-jela","piletina","paste","pizza","riba","obrok-salate","fast-food","desert"];
+function show(id){
+  const c = MENU.find(x => x.id === id);
+  [...tabs.children].forEach(b => b.classList.toggle("on", b.dataset.id === id));
+  list.innerHTML = c.items.slice(0,8).map((it,i) =>
+    `<div class="row" style="animation-delay:${i*40}ms"><div class="top"><h3>${it[0]}</h3><span class="dots"></span><b>${fmt(it[1])}<i>RSD</i></b></div>${it[2] ? `<p>${it[2]}</p>` : ""}</div>`).join("");
+}
+SHOW.forEach(id => { const c = MENU.find(x => x.id === id), b = document.createElement("button");
+  b.className = "tab"; b.dataset.id = id; b.textContent = c.sr; b.onclick = () => show(id); tabs.appendChild(b); });
+show(SHOW[0]);
+
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll(".rv").forEach((el,i) => { el.style.transitionDelay = (i%3)*90 + "ms"; io.observe(el); });
+document.querySelectorAll("#drawer a").forEach(a => a.onclick = () => document.getElementById("drawer").classList.remove("open"));
+
+function rez(e){
+  e.preventDefault();
+  const f = new FormData(e.target), t = document.getElementById("toast");
+  const d = f.get("datum") ? f.get("datum").split("-").reverse().join(".") + "." : "";
+  t.textContent = `Hvala, ${f.get("ime")}. Upit za ${f.get("osoba")} osobe, ${d} u ${f.get("vreme")}, je zabeležen. Ovo je demo, pa upit nije poslat restoranu.`;
+  t.classList.add("show");
+  return false;
+}
+</script>
+</body>
+</html>

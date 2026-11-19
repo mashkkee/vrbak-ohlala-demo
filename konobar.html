@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Konobar · Vrbak Oh la la</title>
+<meta name="theme-color" content="#121a17">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700;800&family=Parisienne&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#121a17;--card:#1c2d28;--card-2:#27403a;--cream:#f4eee2;--orange:#e08a2e;--muted:#93a39c;--line:rgba(244,238,226,.12);--green:#4fb07a;--red:#e2614b;
+  --serif:"Cormorant Garamond",Georgia,serif;--sans:"Manrope",system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--sans);background:var(--bg);color:var(--cream);min-height:100vh;-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+a{color:var(--orange)}
+.app{max-width:560px;margin-inline:auto;padding:22px 16px 60px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-family:var(--serif);font-size:1.35rem;font-weight:600;letter-spacing:.05em}
+.logo span{font-family:"Parisienne",cursive;color:var(--orange);font-size:1.3rem;letter-spacing:0;margin-left:6px}
+.live{display:flex;align-items:center;gap:8px;font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.live i{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(79,176,122,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{to{box-shadow:0 0 0 12px rgba(79,176,122,0)}}
+h1{font-family:var(--serif);font-weight:500;font-size:2.3rem;margin:26px 0 4px;line-height:1.05}
+.sub{color:var(--muted);font-size:.9rem}
+.zones{display:flex;gap:8px;margin:20px 0 6px;overflow-x:auto;scrollbar-width:none}
+.zones::-webkit-scrollbar{display:none}
+.zones button{padding:10px 16px;border-radius:999px;border:1px solid var(--line);font-weight:700;font-size:.84rem;white-space:nowrap;color:var(--muted)}
+.zones button.on{background:var(--cream);color:var(--bg);border-color:var(--cream)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 22px}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+.stats b{display:block;font-size:1.7rem;font-weight:800;line-height:1}
+.stats small{color:var(--muted);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.call{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;margin-bottom:12px;animation:in .45s var(--ease)}
+@keyframes in{from{opacity:0;transform:translateY(-14px) scale(.98)}}
+.call.novo{border-color:rgba(224,138,46,.7);background:linear-gradient(135deg,#2a3a2f,#1c2d28);box-shadow:0 18px 40px -22px rgba(224,138,46,.8)}
+.num{flex:none;width:68px;height:68px;border-radius:18px;background:var(--orange);color:#1b1206;display:grid;place-items:center;text-align:center;line-height:1}
+.num small{display:block;font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.num b{font-size:1.9rem;font-weight:800}
+.call.gotovo .num{background:var(--card-2);color:var(--muted)}
+.call .mid{flex:1;min-width:0}
+.call h3{font-size:1.05rem;font-weight:800}
+.call p{color:var(--muted);font-size:.82rem;margin-top:3px}
+.call .act{flex:none;height:44px;padding:0 16px;border-radius:12px;background:var(--cream);color:var(--bg);font-weight:800;font-size:.86rem}
+.call.gotovo .act{background:none;color:var(--green);padding:0 4px}
+.kind{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:6px;margin-left:6px;vertical-align:2px}
+.kind.konobar{background:rgba(224,138,46,.2);color:var(--orange)}
+.kind.racun{background:rgba(79,176,122,.2);color:var(--green)}
+.empty{text-align:center;color:var(--muted);padding:54px 16px;border:1px dashed var(--line);border-radius:20px;font-size:.95rem;line-height:1.6}
+.foot{margin-top:26px;font-size:.8rem;color:var(--muted);line-height:1.6}
+.foot button{color:var(--orange);font-weight:700}
+.banner{position:fixed;left:50%;top:14px;translate:-50% -140%;z-index:10;width:min(520px,calc(100% - 24px));background:var(--cream);color:var(--bg);border-radius:18px;padding:14px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.7);transition:translate .5s var(--ease)}
+.banner.show{translate:-50% 0}
+.banner i{flex:none;width:42px;height:42px;border-radius:12px;background:var(--orange);display:grid;place-items:center;font-style:normal;font-weight:800}
+.banner b{display:block;font-size:.95rem}
+.banner span{font-size:.8rem;color:#4a5a54}
+</style>
+</head>
+<body>
+<div class="banner" id="banner"><i id="bn">7</i><div><b id="bt">Sto 7 zove konobara</b><span id="bs">Reon B · sala · upravo</span></div></div>
+<div class="app">
+  <header><div class="logo">VRBAK<span>Oh la la</span></div><div class="live"><i></i>Uživo</div></header>
+  <h1>Pozivi sa stolova</h1>
+  <p class="sub">Ekran konobara. Novi poziv stiže čim gost dodirne „Pozovi konobara” u meniju.</p>
+  <div class="zones" id="zones"></div>
+  <div class="stats"><div><b id="sN">0</b><small>Čeka</small></div><div><b id="sD">0</b><small>Preuzeto</small></div><div><b id="sT">–</b><small>Poslednji</small></div></div>
+  <div id="list"></div>
+  <p class="foot">Demo: otvorite <a href="meni.html" target="_blank">digitalni meni</a> u drugom prozoru i dodirnite „Pozovi konobara”. U pravoj verziji obaveštenje stiže kao notifikacija na telefon konobara koji je zadužen za taj reon, i kada je ekran zaključan. <button id="test">Pošalji probni poziv</button> · <button id="wipe">Obriši sve</button></p>
+</div>
+<script>
+const KEY = "vrbak-pozivi", ZONES = ["Svi reoni","Reon A · bašta","Reon B · sala","Reon C · sprat"];
+let zone = ZONES[0], seen = new Set();
+const $ = s => document.querySelector(s);
+const load = () => { try{ return JSON.parse(localStorage.getItem(KEY) || "[]"); }catch(e){ return []; } };
+const save = a => localStorage.setItem(KEY, JSON.stringify(a));
+const ago = iso => { const s = Math.max(0, Math.round((Date.now() - new Date(iso))/1000)); return s < 10 ? "upravo" : s < 60 ? `pre ${s} s` : s < 3600 ? `pre ${Math.floor(s/60)} min` : new Date(iso).toLocaleTimeString("sr-RS",{hour:"2-digit",minute:"2-digit"}); };
+function render(){
+  const all = load(), mine = all.filter(c => zone===ZONES[0] || c.reon===zone);
+  $("#zones").innerHTML = ZONES.map(z => `<button class="${z===zone?"on":""}" data-z="${z}">${z}</button>`).join("");
+  $("#sN").textContent = mine.filter(c => c.status==="novo").length;
+  $("#sD").textContent = mine.filter(c => c.status!=="novo").length;
+  $("#sT").textContent = mine[0] ? "Sto " + mine[0].sto : "–";
+  $("#list").innerHTML = mine.length ? mine.map(c => `<div class="call ${c.status}"><div class="num"><span><small>Sto</small><b>${c.sto}</b></span></div><div class="mid"><h3>${c.vrsta==="racun"?"Traži račun":"Zove konobara"}<span class="kind ${c.vrsta}">${c.vrsta==="racun"?"Račun":"Poziv"}</span></h3><p>${c.reon} · ${ago(c.vreme)}</p></div><button class="act" data-id="${c.id}">${c.status==="novo"?"Preuzmi":"✓ Preuzeto"}</button></div>`).join("")
+    : `<div class="empty">Trenutno nema poziva.<br>Kada gost pozove, ovde se pojavljuje broj stola.</div>`;
+}
+function notify(c){
+  if(seen.has(c.id)) return; seen.add(c.id);
+  if(zone!==ZONES[0] && c.reon!==zone) return;
+  $("#bn").textContent = c.sto; $("#bt").textContent = `Sto ${c.sto} ${c.vrsta==="racun"?"traži račun":"zove konobara"}`; $("#bs").textContent = `${c.reon} · upravo`;
+  $("#banner").classList.add("show"); clearTimeout(notify.t); notify.t = setTimeout(() => $("#banner").classList.remove("show"), 4200);
+  if(navigator.vibrate) navigator.vibrate([120,60,120]);
+  try{ const a = new (window.AudioContext||window.webkitAudioContext)(), o = a.createOscillator(), g = a.createGain(); o.connect(g); g.connect(a.destination); o.frequency.value = 880; g.gain.setValueAtTime(.12, a.currentTime); g.gain.exponentialRampToValueAtTime(.0001, a.currentTime+.5); o.start(); o.stop(a.currentTime+.5); }catch(e){}
+}
+load().forEach(c => seen.add(c.id));
+addEventListener("storage", e => { if(e.key===KEY){ const a = load(); if(a[0]) notify(a[0]); render(); } });
+if("BroadcastChannel" in window) new BroadcastChannel("vrbak-pozivi").onmessage = e => { notify(e.data); render(); };
+$("#zones").onclick = e => { const b = e.target.closest("[data-z]"); if(b){ zone = b.dataset.z; render(); } };
+$("#list").onclick = e => { const b = e.target.closest("[data-id]"); if(!b) return; const a = load(), c = a.find(x => x.id==b.dataset.id); if(c){ c.status = "gotovo"; save(a); render(); } };
+$("#test").onclick = () => { const n = 1 + Math.floor(Math.random()*18), c = {id:Date.now(), sto:n, reon:n<=6?ZONES[1]:n<=12?ZONES[2]:ZONES[3], vrsta:Math.random()<.3?"racun":"konobar", vreme:new Date().toISOString(), status:"novo"}; const a = load(); a.unshift(c); save(a.slice(0,30)); notify(c); render(); };
+$("#wipe").onclick = () => { save([]); render(); };
+setInterval(render, 15000); render();
+</script>
+</body>
+</html>
